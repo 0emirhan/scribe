@@ -1,0 +1,34 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "scribe-cli"
+version = "0.1.0"
+description = "Drop an audio/video file, get a transcript .txt of the same name (faster-whisper, GPU auto)."
+readme = "README.md"
+requires-python = ">=3.9"
+license = { text = "MIT" }
+authors = [{ name = "emirhan" }]
+keywords = ["whisper", "transcription", "speech-to-text", "faster-whisper", "cli", "subtitles"]
+dependencies = [
+    "faster-whisper>=1.1",
+]
+
+[project.optional-dependencies]
+# GPU acceleration on NVIDIA cards: bundles the CUDA libraries so no system
+# CUDA / LD_LIBRARY_PATH setup is needed. Install with:  pip install "scribe-cli[gpu]"
+gpu = [
+    "nvidia-cublas-cu12",
+    "nvidia-cudnn-cu12",
+]
+
+[project.scripts]
+scribe = "scribe.cli:main"
+
+[project.urls]
+Homepage = "https://github.com/0emirhan/scribe"
+Repository = "https://github.com/0emirhan/scribe"
+
+[tool.hatch.build.targets.wheel]
+packages = ["scribe"]

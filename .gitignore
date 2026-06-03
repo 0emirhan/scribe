@@ -1,0 +1,26 @@
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+build/
+dist/
+.venv/
+venv/
+
+# Models & caches (downloaded locally, never committed — multi-GB)
+models/
+*.bin
+*.pt
+
+# OS
+.DS_Store
+
+# Transcription outputs / test media
+*.txt
+!README.txt
+*.wav
+*.mp3
+*.m4a
+*.mp4
+*.mkv
+!docs/**
